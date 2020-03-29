@@ -18,7 +18,18 @@ import EventMiddleware from '@tulies/event-middleware'
 EventMiddleware.on(type,callback)
 ```
 
-> tips: 可能需要你
+> tips: 不要放到exclude中
+
+```javascript
+{
+  test: /\.js$/,
+  loader: 'babel-loader',
+  // exclude: /node_modules/
+  exclude: /node_modules\/(?!(@tulies\/event-middleware)\/).*/
+
+}
+```
+
 ## 引入文件
 
 ```html
