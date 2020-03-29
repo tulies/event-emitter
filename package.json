@@ -1,0 +1,41 @@
+{
+  "name": "@tulies/event-middleware",
+  "version": "0.0.1",
+  "description": "JS自定义事件消息通知，类似jaquey的事件机制。",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack --watch --progress --config scripts/webpack.config.dev.js",
+    "build": "cross-env NODE_ENV=production webpack --progress --config scripts/webpack.config.prod.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tulies/event-middleware.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tulies/event-middleware/issues"
+  },
+  "homepage": "https://github.com/tulies/event-middleware#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-transform-runtime": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "cross-env": "^7.0.2",
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-loader": "^3.0.3",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3",
+    "webpack-merge": "^4.2.2"
+  }
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head >
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width,user-scalable=no" name="viewport"/>
+    <title>EventMiddle TEST</title>
+    <script src="js/vconsole/vconsole.min.js"></script>
+    <script>
+       var vConsole = new VConsole();
+    </script>
+    <style>
+        *{
+            margin: 0;padding: 0;
+        }
+        body{
+            line-height: 1.6;
+            padding: 2%;
+        }
+        .input{
+            border: 1px solid #ccc;
+            display: block;
+            line-height: 1.6;
+            /*width: 50%;*/
+        }
+        .textarea{
+            border: 1px solid #ccc;
+            width: 100%;
+            display: block;
+        }
+        .button{
+            display: block;
+            background: #3399ff;
+            text-align: center;
+            color:#ffffff;
+            margin: 10px;
+            padding: 8px;
+            border-radius: 5px;
+            font-size: 14px;
+
+        }
+        .item{
+            border-bottom: 1px solid #efefef;
+            padding:2px 5px;
+            font-size:14px;
+            line-height: 20px;
+        }
+        .form-item{
+            display: flex;
+            align-items: center;
+
+        }
+        .ipu{flex: 1}
+    </style>
+</head>
+<body>
+  tips：打开控制台进行测试<br/>
+  <div id="custom-event-1" class="button">custom-event-1 dispatch</div>
+  <div id="custom-event-2" class="button">custom-event-2 dispatch</div>
+
+  <hr/>
+  options的使用：<br/>
+  <div id="custom-event-3-all" class="button">custom-event-3 dispatch all</div>
+  <div id="custom-event-3-id1" class="button">custom-event-2 dispatch id1</div>
+
+  <hr/>
+  使用new出来的实例<br/>
+  <div id="custom-event-4" class="button">使用new出来的实例</div>
+
+<script src="../build/EventMiddleware.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>
