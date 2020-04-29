@@ -3,4 +3,6 @@
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": true
     },
+    "fileheader.Author": "王嘉炀",
+    "fileheader.LastModifiedBy": "王嘉炀",
   }

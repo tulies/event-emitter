@@ -72,3 +72,4 @@ declare class EventMiddleware {
 // }
 
 // export = MVPlayer;
+export = EventMiddleware

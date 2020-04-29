@@ -1,6 +1,6 @@
 {
   "name": "@tulies/event-middleware",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "JS自定义事件消息通知，类似jaquey的事件机制。",
   "main": "src/index.js",
   "scripts": {
@@ -37,5 +37,6 @@
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3",
     "webpack-merge": "^4.2.2"
-  }
+  },
+  "types": "./types/index.d.ts"
 }
