@@ -1,8 +1,6 @@
 /*
  * @Author: 王嘉炀
  * @Date: 2020-03-29 21:35:54
- * @Last Modified by: 王嘉炀
- * @Last Modified time: 2020-04-29 23:37:33
  */
 
 import EventHandler from './EventHandler'
