@@ -1,8 +1,6 @@
 {
-    "editor.tabSize": 2,
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
-    },
-    "fileheader.Author": "王嘉炀",
-    "fileheader.LastModifiedBy": "王嘉炀",
+  "editor.tabSize": 2,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
   }
+}
