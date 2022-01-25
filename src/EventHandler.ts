@@ -3,25 +3,25 @@
  * @Date: 2022-01-17 21:36:16
  */
 
-import { TypeHandler } from '.'
+import { TypeListener } from '.'
 import EventStore from './EventStore'
 class EventHandler {
   public eventStore
   constructor() {
     this.eventStore = new EventStore()
   }
-  addEventListener(type: string, handler: TypeHandler, options?: any): void {
+  addEventListener(type: string, listener: TypeListener, options?: any): void {
     this.eventStore.put({
       type,
-      handler,
+      listener,
       options
     })
   }
   // 移除
-  removeEventListener(type: string, handler: TypeHandler, options?: any): void {
+  removeEventListener(type: string, listener: TypeListener, options?: any): void {
     this.eventStore.remove({
       type,
-      handler,
+      listener,
       options
     })
   }
@@ -47,13 +47,13 @@ class EventHandler {
       // }
 
       // 执行回调
-      data ? value.handler && value.handler(data) : value.handler && value.handler()
+      data ? value.listener && value.listener(data) : value.listener && value.listener()
     })
   }
-  has(type: string, handler?: TypeHandler, options?: any): boolean {
+  has(type: string, listener?: TypeListener, options?: any): boolean {
     return this.eventStore.has({
       type,
-      handler,
+      listener,
       options
     })
   }

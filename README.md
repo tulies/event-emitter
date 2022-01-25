@@ -9,33 +9,21 @@ If I can help you, please give me a star, tahnk you!
 ## ES6 import
 
 ```shell
-npm i --save @tulies/event-middleware
+yarn add @tulies/event-middleware
 ```
 
 ```javascript
 import EventMiddleware from '@tulies/event-middleware'
 
-EventMiddleware.on(type, callback)
-```
-
-> tips: 不要放到 exclude 中
-
-```javascript
-{
-  test: /\.js$/,
-  loader: 'babel-loader',
-  // exclude: /node_modules/
-  exclude: /node_modules\/(?!(@tulies\/event-middleware)\/).*/
-
-}
+EventMiddleware.on(type, listener)
 ```
 
 ## 引入文件
 
 ```html
-<script src="/build/EventMiddleware.js"></script>
+<script src="/dist/event-middleware.umd.js"></script>
 <script>
-  EventMiddleware.on(type, callback)
+  EventMiddleware.on(type, listener)
 </script>
 ```
 
@@ -44,55 +32,34 @@ EventMiddleware.on(type, callback)
 ## 全局调用，全局共享事件监听。
 
 ```javascript
-// 添加事件监听
-EventMiddleware.on('custom-event', function (data) {
+const listener = function (data) {
   console.log(new Date(), 'custom-event 回调中返回：', data)
-})
+}
+// 添加事件监听
+EventMiddleware.on('custom-event', listener)
 
 // 取消事件监听
-EventMiddleware.unbind('custom-event')
+EventMiddleware.off('custom-event', listener)
 
 // 事件消息通知
-EventMiddleware.dispatch('custom-event', {
-  name: '我是custom-event-1的回调数据'
-})
-
-// 添加options参数，配置id，区分事件的监听来源。
-EventMiddleware.on(
-  'custom-event',
-  function (data) {
-    console.log(new Date(), 'custom-event 回调中返回：', data)
-  },
-  { id: 'id1' }
-)
-// 仅解除指定id来源的事件
-EventMiddleware.unbind('custom-event', { id: 'id1' })
-// 仅通知指定id来源的事件
-EventMiddleware.dispatch(
-  'custom-event',
-  {
-    name: '我是custom-event-1的回调数据'
-  },
-  { id: 'id1' }
-)
+EventMiddleware.emit('custom-event', { name: '我是custom-event 的回调数据' })
 ```
 
 ## 具体实例调用，每个实例相互独立
 
 ```javascript
 var eventMiddleware = new EventMiddleware()
-// 添加事件监听
-eventMiddleware.on('custom-event', function (data) {
+const listener = function (data) {
   console.log(new Date(), 'custom-event 回调中返回：', data)
-})
+}
+// 添加事件监听
+eventMiddleware.on('custom-event', listener)
 
 // 取消事件监听
-eventMiddleware.unbind('custom-event')
+eventMiddleware.off('custom-event', listener)
 
 // 事件消息通知
-eventMiddleware.dispatch('custom-event', {
-  name: '我是custom-event-1的回调数据'
-})
+eventMiddleware.emit('custom-event', { name: '我是custom-event 的回调数据' })
 ```
 
 # Dist / Build
@@ -100,11 +67,11 @@ eventMiddleware.dispatch('custom-event', {
 ## Development Build
 
 ```shell
-$ npm run dev
+$ yarn dev
 ```
 
 ## Production Build
 
 ```shell
-$ npm run build
+$ yarn build
 ```

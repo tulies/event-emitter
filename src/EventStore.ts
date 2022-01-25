@@ -1,9 +1,9 @@
-import { TypeHandler } from '.'
+import { TypeListener } from '.'
 
 // Event对象冲突
 interface EventItem {
   type: string
-  handler?: TypeHandler
+  listener?: TypeListener
   options?: any
 }
 interface EventPool {
@@ -34,10 +34,10 @@ class EventStore {
       return
     }
     // 如果options存在指定了id，则删除特定的id事件。
-    if (data.handler) {
+    if (data.listener) {
       const typeEvents: EventItem[] = []
       this.eventPool[data.type].forEach(function (value) {
-        if (value.handler && value.handler === data.handler) {
+        if (value.listener && value.listener === data.listener) {
           return true
         }
         typeEvents.push(value)

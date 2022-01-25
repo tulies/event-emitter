@@ -1,6 +1,6 @@
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
-import sourceMaps from 'rollup-plugin-sourcemaps'
+// import sourceMaps from 'rollup-plugin-sourcemaps'
 import json from '@rollup/plugin-json'
 import babel from '@rollup/plugin-babel'
 // import camelCase from 'lodash.camelcase'
@@ -15,8 +15,8 @@ const extensions = ['.ts', '.js', 'json']
 export default {
   input: 'src/index.ts',
   output: [
-    { file: pkg.main, name: libraryName, format: 'umd', sourcemap: true },
-    { file: pkg.module, format: 'esm', sourcemap: true }
+    { file: pkg.main, name: libraryName, format: 'umd', sourcemap: !isProduction },
+    { file: pkg.module, format: 'esm', sourcemap: !isProduction }
   ],
   // Indicate here external modules you don't wanna include in your bundle (i.e.: 'lodash')
   external: [],
@@ -44,9 +44,9 @@ export default {
       //   'src/**'
       // ],
       extensions: ['tsx', 'ts', 'js', 'jsx'] // 超级关键配置
-    })
+    }),
     // Resolve source maps to the original source
-    // sourceMaps()
-    // isProduction && terser()
+    // isProduction === false && sourceMaps(),
+    isProduction && terser()
   ]
 }

@@ -2,7 +2,7 @@
   "name": "@tulies/event-middleware",
   "version": "1.0.0-beta.0",
   "description": "JS自定义事件消息通知，类似jaquey的事件机制。",
-  "main": "dist/lib/index.js",
+  "main": "dist/event-middleware.umd.js",
   "module": "dist/event-middleware.esm.js",
   "typings": "dist/types/index.d.ts",
   "sideEffects": false,
@@ -13,9 +13,7 @@
     "lint": "eslint --ext .js,.ts --ignore-path .eslintignore .",
     "lintfix": "eslint --fix --ext .js,.ts --ignore-path .eslintignore .",
     "dev": "cross-env NODE_ENV=development rollup -c rollup.config.js -w",
-    "build": "rm -rf dist/ && tsc --module commonjs && cross-env NODE_ENV=production rollup -c rollup.config.js",
-    "build-bak": "rm -rf dist/ && cross-env NODE_ENV=production rollup -c rollup.config.js",
-    "build-bak2": "tsc --module commonjs && cross-env NODE_ENV=production rollup -c rollup.config.js",
+    "build": "tsc --module commonjs && cross-env NODE_ENV=production rollup -c rollup.config.js",
     "release": "npm run build && standard-version --release-as patch && git push --follow-tags && npm publish",
     "prebuild": "rimraf dist"
   },
@@ -27,10 +25,6 @@
   },
   "author": "王嘉炀",
   "license": "ISC",
-  "dependencies": {
-    "start": "^5.1.0",
-    "yarn": "^1.22.17"
-  },
   "devDependencies": {
     "@babel/core": "^7.16.7",
     "@babel/plugin-proposal-class-properties": "^7.16.7",
