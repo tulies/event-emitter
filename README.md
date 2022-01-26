@@ -6,7 +6,7 @@ If I can help you, please give me a star, tahnk you!
 
 # Installation
 
-## ES6 import
+## ES Module Import
 
 ```shell
 yarn add @tulies/event-middleware
@@ -14,8 +14,6 @@ yarn add @tulies/event-middleware
 
 ```javascript
 import EventMiddleware from '@tulies/event-middleware'
-
-EventMiddleware.on(type, listener)
 ```
 
 ## 引入文件
