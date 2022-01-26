@@ -10,12 +10,12 @@ class EventMiddleware {
     this.eventHandler = new EventHandler()
   }
   public on(type: string, listener: TypeListener, options?: any): void {
-    console.debug('on', type, listener)
+    // console.debug('on', type, listener)
     this.eventHandler.addEventListener(type, listener, options)
   }
 
   public off(type: string, listener: TypeListener, options?: any): void {
-    console.debug('off', type, listener)
+    // console.debug('off', type, listener)
     this.eventHandler.removeEventListener(type, listener, options)
   }
   public emit(type: string, data?: any): void {
