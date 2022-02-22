@@ -1,9 +1,9 @@
 {
-  "name": "@tulies/event-middleware",
-  "version": "1.0.0-beta.1",
-  "description": "JS自定义事件消息通知，类似jaquey的事件机制。",
-  "main": "dist/event-middleware.umd.js",
-  "module": "dist/event-middleware.es.js",
+  "name": "@tulies/event-emitter",
+  "version": "1.0.0",
+  "description": "JS自定义事件消息订阅通知，类似jaquey的事件机制。",
+  "main": "dist/event-emitter.umd.js",
+  "module": "dist/event-emitter.es.js",
   "typings": "dist/types/index.d.ts",
   "sideEffects": false,
   "files": [
@@ -11,7 +11,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tulies/event-middleware.git"
+    "url": "git+https://github.com/tulies/event-emitter.git"
   },
   "scripts": {
     "lint": "eslint --ext .js,.ts --ignore-path .eslintignore .",

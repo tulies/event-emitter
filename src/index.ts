@@ -1,10 +1,10 @@
 import EventHandler from './EventHandler'
 export type TypeListener = (data?: any, responseCallback?: (resdata?: any) => void) => void
 
-class EventMiddleware {
+class EventEmitter {
   private eventHandler
-  private static globalInstance: Record<string, EventMiddleware> = {}
-  private static globalEventMiddleware: EventMiddleware
+  private static globalInstance: Record<string, EventEmitter> = {}
+  private static globalEventEmitter: EventEmitter
 
   constructor() {
     this.eventHandler = new EventHandler()
@@ -28,26 +28,26 @@ class EventMiddleware {
   }
 
   // 通过id来标识，存在实例则直接返回，没有则new
-  static instance(id: string): EventMiddleware {
+  static instance(id: string): EventEmitter {
     if (id) {
       if (!this.globalInstance[id]) {
-        this.globalInstance[id] = new EventMiddleware()
+        this.globalInstance[id] = new EventEmitter()
       }
       return this.globalInstance[id]
     }
-    return new EventMiddleware()
+    return new EventEmitter()
   }
   // 单例，用于全局类直接调用。
-  static singleInstance(): EventMiddleware {
-    if (this.globalEventMiddleware) {
-      return this.globalEventMiddleware
+  static singleInstance(): EventEmitter {
+    if (this.globalEventEmitter) {
+      return this.globalEventEmitter
     }
-    this.globalEventMiddleware = new EventMiddleware()
-    return this.globalEventMiddleware
+    this.globalEventEmitter = new EventEmitter()
+    return this.globalEventEmitter
   }
-  public static on = EventMiddleware.singleInstance().on.bind(EventMiddleware.singleInstance())
-  public static off = EventMiddleware.singleInstance().off.bind(EventMiddleware.singleInstance())
-  public static emit = EventMiddleware.singleInstance().emit.bind(EventMiddleware.singleInstance())
-  public static has = EventMiddleware.singleInstance().has.bind(EventMiddleware.singleInstance())
+  public static on = EventEmitter.singleInstance().on.bind(EventEmitter.singleInstance())
+  public static off = EventEmitter.singleInstance().off.bind(EventEmitter.singleInstance())
+  public static emit = EventEmitter.singleInstance().emit.bind(EventEmitter.singleInstance())
+  public static has = EventEmitter.singleInstance().has.bind(EventEmitter.singleInstance())
 }
-export default EventMiddleware
+export default EventEmitter

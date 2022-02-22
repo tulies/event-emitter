@@ -1,4 +1,4 @@
-# EventMiddleware
+# EventEmitter
 
 JS 自定义事件消息通知，类似 jquey 的事件机制。
 
@@ -9,19 +9,19 @@ If I can help you, please give me a star, tahnk you!
 ## ES Module Import
 
 ```shell
-yarn add @tulies/event-middleware
+yarn add @tulies/event-emitter
 ```
 
 ```javascript
-import EventMiddleware from '@tulies/event-middleware'
+import EventEmitter from '@tulies/event-emitter'
 ```
 
 ## 引入文件
 
 ```html
-<script src="/dist/event-middleware.umd.js"></script>
+<script src="/dist/event-emitter.umd.js"></script>
 <script>
-  EventMiddleware.on(type, listener)
+  EventEmitter.on(type, listener)
 </script>
 ```
 
@@ -34,30 +34,30 @@ const listener = function (data) {
   console.log(new Date(), 'custom-event 回调中返回：', data)
 }
 // 添加事件监听
-EventMiddleware.on('custom-event', listener)
+EventEmitter.on('custom-event', listener)
 
 // 取消事件监听
-EventMiddleware.off('custom-event', listener)
+EventEmitter.off('custom-event', listener)
 
 // 事件消息通知
-EventMiddleware.emit('custom-event', { name: '我是custom-event 的回调数据' })
+EventEmitter.emit('custom-event', { name: '我是custom-event 的回调数据' })
 ```
 
 ## 具体实例调用，每个实例相互独立
 
 ```javascript
-var eventMiddleware = new EventMiddleware()
+var eventEmitter = new EventEmitter()
 const listener = function (data) {
   console.log(new Date(), 'custom-event 回调中返回：', data)
 }
 // 添加事件监听
-eventMiddleware.on('custom-event', listener)
+eventEmitter.on('custom-event', listener)
 
 // 取消事件监听
-eventMiddleware.off('custom-event', listener)
+eventEmitter.off('custom-event', listener)
 
 // 事件消息通知
-eventMiddleware.emit('custom-event', { name: '我是custom-event 的回调数据' })
+eventEmitter.emit('custom-event', { name: '我是custom-event 的回调数据' })
 ```
 
 # Dist / Build

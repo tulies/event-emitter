@@ -10,7 +10,7 @@ const pkg = require('./package.json')
 const isProduction = process.env.NODE_ENV === 'production'
 
 // --libraryname--
-const libraryName = 'EventMiddleware'
+const libraryName = 'EventEmitter'
 const extensions = ['.ts', '.js', 'json']
 export default {
   input: 'src/index.ts',
